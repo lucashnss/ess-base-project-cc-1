@@ -7,3 +7,4 @@ When “João” clica na aba de “busca por filtros”.
 And “Busca por filtros” abre uma janela com as opções de filtros disponiveis
 When “João” Clica em um filtro “X” 
 Then o sistema mostra a lista de filmes/séries com o filtro “X”
+And "essa parte ainda será preenchida"
