@@ -1,10 +1,12 @@
-Feature: O usuário quer escolher um gênero especifico para um filme
+Feature: Filtrar filmes por gênero 
+as a um usuário
+I want to escolher um filtro de gênero e ver os filmes relacionados a esse gènero.
 
-Scenario: Busca pelo filtro de de gênero
+Scenario: O usuário busca filmes da categoria "Drama".
+Given "João" esta na "Homepage".
+When "João" clica na aba de "busca por filtros" presente na "Homepage".
+And na aba "Busca de filtros" uma janela é aberta para a seleção dos gêneros: "Ação", "Aventura", "Drama", "Teror", "Suspense".
+When "João" Clica em um filtro "Drama" e é então direcionado a "tela de busca" onde encontra uma lista com 3 filmes: "Orgulho e preconceito", "Ainda estou aqui", "Que horas ela volta?". 
+And "João" seleciona o filme "Orgulho e preconceito".
+And "João" é redirecionado a janela de reprodução do filme "Orgulho e preconceito".
 
-Given “João” esta na pagina inicial.
-When “João” clica na aba de “busca por filtros”.
-And “Busca por filtros” abre uma janela com as opções de filtros disponiveis
-When “João” Clica em um filtro “X” 
-Then o sistema mostra a lista de filmes/séries com o filtro “X”
-And "essa parte ainda será preenchida"
