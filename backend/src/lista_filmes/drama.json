@@ -1,0 +1,21 @@
+ [
+        {
+            "name": "À Espera de um Milagre",
+            "author": "Stephen King",
+           
+            "description": "Um carcereiro em uma prisão dos anos 30 descobre que um prisioneiro condenado à morte tem poderes sobrenaturais."
+        },
+        {
+            "name": "O Curioso Caso de Benjamin Button",
+            "author": "F. Scott Fitzgerald",
+           
+            "description": "A história de um homem que nasce idoso e rejuvenesce ao longo do tempo, explorando o significado da vida e do amor."
+        },
+        {
+            "name": "Clube da Luta",
+            "author": "Chuck Palahniuk",
+           
+            "description": "Um homem insatisfeito com a vida corporativa cria um clube secreto de lutas com um carismático vendedor de sabonetes."
+        }
+    ]
+

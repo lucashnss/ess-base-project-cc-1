@@ -1,0 +1,20 @@
+[
+    {
+        "name": "O Exorcista",
+        "author": "William Peter Blatty",
+        
+        "description": "Uma menina de 12 anos começa a apresentar comportamentos estranhos e assustadores, levando sua mãe a buscar ajuda de um exorcista."
+    },
+    {
+        "name": "O Iluminado",
+        "author": "Stephen King",
+        
+        "description": "Um escritor e sua família se mudam para um hotel isolado, onde forças sobrenaturais influenciam seu comportamento, levando-o à loucura."
+    },
+    {
+        "name": "Invocação do Mal",
+        "author": "James Wan",
+        
+        "description": "Investigadores paranormais ajudam uma família aterrorizada por uma entidade demoníaca em sua nova casa."
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Superbad: É Hoje",
+        "author": "Seth Rogen & Evan Goldberg",
+        
+        "description": "Dois amigos inseparáveis tentam curtir a melhor festa de suas vidas antes de seguirem caminhos diferentes na faculdade."
+    },
+    {
+        "name": "Se Beber, Não Case!",
+        "author": "Jon Lucas & Scott Moore",
+       
+        "description": "Após uma despedida de solteiro épica em Las Vegas, três amigos precisam encontrar o noivo desaparecido antes do casamento."
+    },
+    {
+        "name": "As Branquelas",
+        "author": "Shawn Wayans & Marlon Wayans",
+      
+        "description": "Dois agentes do FBI disfarçam-se como socialites brancas para impedir um sequestro milionário."
+    }
+]

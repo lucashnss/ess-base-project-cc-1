@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Indiana Jones e os Caçadores da Arca Perdida",
+        "author": "George Lucas",
+        
+        "description": "O arqueólogo Indiana Jones embarca em uma jornada para encontrar a lendária Arca da Aliança antes dos nazistas."
+    },
+    {
+        "name": "Piratas do Caribe: A Maldição do Pérola Negra",
+        "author": "Ted Elliott & Terry Rossio",
+        
+        "description": "O excêntrico Capitão Jack Sparrow e um jovem ferreiro se unem para resgatar uma mulher sequestrada por piratas amaldiçoados."
+    },
+    {
+        "name": "O Senhor dos Anéis: A Sociedade do Anel",
+        "author": "J.R.R. Tolkien",
+        
+        "description": "Frodo Bolseiro embarca em uma missão para destruir o Anel do Poder e impedir que Sauron domine a Terra-média."
+    }
+]

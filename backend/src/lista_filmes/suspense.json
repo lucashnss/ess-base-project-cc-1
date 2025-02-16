@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Seven: Os Sete Crimes Capitais",
+        "author": "Andrew Kevin Walker",
+       
+        "description": "Dois detetives investigam uma série de assassinatos brutais baseados nos sete pecados capitais."
+    },
+    {
+        "name": "A Ilha do Medo",
+        "author": "Dennis Lehane",
+        
+        "description": "Dois agentes federais investigam o desaparecimento de uma paciente em um hospital psiquiátrico isolado."
+    },
+    {
+        "name": "O Silêncio dos Inocentes",
+        "author": "Thomas Harris",
+        
+        "description": "Uma jovem agente do FBI busca a ajuda de um assassino canibal para capturar um serial killer."
+    }
+]

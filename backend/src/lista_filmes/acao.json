@@ -1,0 +1,20 @@
+[
+    {
+        "name": "John Wick",
+        "author": "Derek Kolstad",
+        
+        "description": "Após o assassinato de seu cachorro, presente de sua falecida esposa, um ex-assassino de elite volta à ativa em busca de vingança."
+    },
+    {
+        "name": "Mad Max: Estrada da Fúria",
+        "author": "George Miller",
+        
+        "description": "Em um mundo pós-apocalíptico, Max se junta a Furiosa para fugir de um tirano enquanto enfrentam perigos em alta velocidade."
+    },
+    {
+        "name": "Missão: Impossível - Efeito Fallout",
+        "author": "Christopher McQuarrie",
+        
+        "description": "O agente Ethan Hunt e sua equipe enfrentam uma corrida contra o tempo para impedir um desastre nuclear global."
+    }
+]

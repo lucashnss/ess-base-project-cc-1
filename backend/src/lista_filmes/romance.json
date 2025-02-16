@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Diário de uma Paixão",
+        "author": "Nicholas Sparks",
+      
+        "description": "A emocionante história de amor entre um casal de classes sociais diferentes que luta contra todas as adversidades para ficar junto."
+    },
+    {
+        "name": "Orgulho e Preconceito",
+        "author": "Jane Austen",
+       
+        "description": "Elizabeth Bennet e Mr. Darcy enfrentam suas diferenças e o preconceito social enquanto descobrem o verdadeiro amor."
+    },
+    {
+        "name": "Como Eu Era Antes de Você",
+        "author": "Jojo Moyes",
+        
+        "description": "Uma jovem cuidadora se apaixona por um homem tetraplégico, mudando para sempre suas vidas e perspectivas sobre o futuro."
+    }
+]
