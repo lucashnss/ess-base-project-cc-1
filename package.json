@@ -1,5 +1,6 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.21.2",
     "nodemon": "^3.1.9"
   },
@@ -7,5 +8,9 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "jest-cucumber": "^4.5.0"
+=======
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+>>>>>>> 926779ac140e4ca9fa17167edb2fa6f2c725bf40
   }
 }
