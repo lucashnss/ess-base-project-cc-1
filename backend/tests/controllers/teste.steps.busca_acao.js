@@ -11,8 +11,8 @@ const request = supertest(app);
 
 defineFeature(feature, (test) => {
     // mocking the repository
-    let mockTestRepository: TestRepository;
-    let response: supertest.Response;
+    let TestRepository;
+    let Response;
   
     test('Buscar filmes com filtro "Ação"', ({ given, when, then, and }) => {
         given(/^existe uma lista de filmes blocados no gênero ação$/, async () => {
