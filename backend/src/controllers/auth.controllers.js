@@ -1,5 +1,3 @@
-import fs from 'fs'
-import path from 'path'
 import bcrypt from 'bcryptjs'
 import generateTokenAndSetCookie from '../utils/generateToken.js'
 import { readUsersFromFile, writeUsersToFile, validateSignupFields } from '../utils/file.js'
