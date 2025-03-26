@@ -1,6 +1,9 @@
+import fs from 'fs';
+import path from 'path';
+
 const USERS_FILE_PATH = path.resolve('./samples/users.json');
 
-const readUsersFromFile = () => {
+export const readUsersFromFile = () => {
     try {
         const data = fs.readFileSync(USERS_FILE_PATH, 'utf-8');
         return JSON.parse(data);
@@ -10,7 +13,7 @@ const readUsersFromFile = () => {
     }
 };
 
-const writeUsersToFile = (data) => {
+export const writeUsersToFile = (data) => {
     try {
         fs.writeFileSync(USERS_FILE_PATH, JSON.stringify(data, null, 2));
     } catch (error) {
@@ -18,7 +21,7 @@ const writeUsersToFile = (data) => {
     }
 };
 
-const validateSignupFields = (fullName, username, birth_date, gender, password, confirmPassword) => {
+export const validateSignupFields = (fullName, username, birth_date, gender, password, confirmPassword) => {
     if (!fullName || !username || !birth_date || !gender || !password || !confirmPassword) {
         return "Todos os campos são obrigatórios";
     }

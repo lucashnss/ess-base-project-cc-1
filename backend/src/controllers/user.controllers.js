@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import bcrypt from 'bcryptjs'
-import { readUsersFromFile, writeUsersToFile} from '../utils/file.js'
+import { readUsersFromFile, writeUsersToFile} from '../utils/authAndUser.js'
 
 export const getAll = (req, res) => {
     try {

@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'
 import generateTokenAndSetCookie from '../utils/generateToken.js'
-import { readUsersFromFile, writeUsersToFile, validateSignupFields } from '../utils/file.js'
+import { readUsersFromFile, writeUsersToFile, validateSignupFields } from '../utils/authAndUser.js'
 
 
 export const signup = async (req, res) => {
