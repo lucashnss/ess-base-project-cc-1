@@ -3,7 +3,7 @@ import path from 'path';
 
 export const top10 = async (req, res) => {
     try {
-        const parser = JSON.parse(fs.readFileSync(path.resolve('./src/database/users.json'), 'utf-8'));
+        const parser = JSON.parse(fs.readFileSync(path.resolve('./database/users.json'), 'utf-8'));
         
         // Filtra apenas os objetos do usuário especificado
         const userData = parser.find(element => element.user === 'Sistema');
@@ -26,7 +26,7 @@ export const top10 = async (req, res) => {
 
 export const recomendacaoGeral = async (req, res) => {
     try {
-        const parser = JSON.parse(fs.readFileSync(path.resolve('./src/database/users.json'), 'utf-8'));
+        const parser = JSON.parse(fs.readFileSync(path.resolve('./database/users.json'), 'utf-8'));
         
         // Filtra apenas os objetos do usuário especificado
         const userData = parser.find(element => element.user === 'Sistema');
@@ -50,7 +50,7 @@ export const recomendacaoGeral = async (req, res) => {
 export const recomendacaoGenero = async (req, res) => {
     try {
         const { generoid } = req.params;  // Recebe o gênero pelo parâmetro
-        const parser = JSON.parse(fs.readFileSync(path.resolve('./src/database/users.json'), 'utf-8'));
+        const parser = JSON.parse(fs.readFileSync(path.resolve('./database/users.json'), 'utf-8'));
 
         // Filtra o usuário "Sistema"
         const userData = parser.find(element => element.user === 'Sistema');
