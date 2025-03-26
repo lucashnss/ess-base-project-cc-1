@@ -4,7 +4,7 @@ import { readDatabase, writeDatabase, findUser } from '../utils/databaseFunc.js'
 
 export const seriesCurtidas = async (req, res) => {
     try {
-        const parser = JSON.parse(fs.readFileSync(path.resolve('./src/database/users.json'), 'utf-8'));
+        const parser = JSON.parse(fs.readFileSync(path.resolve('./database/users.json'), 'utf-8'));
         
         // Filtra apenas os objetos do usuário especificado
         const userData = parser.filter(element => element.user === req.params.userid);

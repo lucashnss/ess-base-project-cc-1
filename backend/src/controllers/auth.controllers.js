@@ -3,32 +3,37 @@ import path from 'path'
 import bcrypt from 'bcryptjs'
 import generateTokenAndSetCookie from '../utils/generateToken.js'
 
-export const signup = async (req, res) => { 
+export const signup = async (req, res) => {
     try {
-         const {fullName, username, birth_date, gender, photo, password, confirmPassword } = req.body 
+        const { fullName, username, birth_date, gender, photo, password, confirmPassword } = req.body;
+
+        // Validação de campos vazios
+        if (!fullName || !username || !birth_date || !gender || !password || !confirmPassword) {
+            return res.status(400).json({ error: "Todos os campos são obrigatórios" });
+        }
 
         if (password !== confirmPassword) {
-            return res.status(400).json({
-                error: "Passwords do not match"
-            })
+            return res.status(400).json({ error: "As senhas não coincidem" });
         }
 
-        var data = JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf-8'))
-
-        // USERNAME ALREADY USED
-        const user = data.filter(element => element.username === username)
-        if (user && user.length > 0) {
-            console.log("Username already used")
-            return res.status(409).json({
-                error: "Username already used"
-            })
+        let data = [];
+        try {
+            const fileData = fs.readFileSync(path.resolve('./samples/users.json'), 'utf-8');
+            data = JSON.parse(fileData);
+        } catch (parseError) {
+            console.error("Error parsing users.json:", parseError);
+            return res.status(500).json({ error: "Error reading users.json" });
         }
 
-        // HASH PASSWORD HERE
-        const salt = await bcrypt.genSalt(10)
-        const hashedPassword = await bcrypt.hash(password, salt)
+        const user = data.find(user => user.username === username);
+        if (user) {
+            return res.status(409).json({ error: "Nome de usuário já utilizado" });
+        }
 
-        const id = JSON.stringify(data.length + 1)
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        const id = String(data.length + 1);
 
         const newUser = {
             id,
@@ -37,14 +42,14 @@ export const signup = async (req, res) => {
             birth_date,
             gender,
             photo,
-            password: hashedPassword
-        }
+            password: hashedPassword,
+        };
 
-        generateTokenAndSetCookie(id, res)
+        generateTokenAndSetCookie(id, res);
 
-        data.push(newUser)
+        data.push(newUser);
 
-        fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(data, null, 2))
+        fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(data, null, 2));
 
         res.status(201).json({
             id,
@@ -52,30 +57,29 @@ export const signup = async (req, res) => {
             username,
             birth_date,
             gender,
-        })
-
+        });
     } catch (error) {
-        console.log("Error in signup controller:", error.message)
-        res.status(500).json({
-            error:"Internal server error"
-        })
+        console.error("Error in signup controller:", error);
+        res.status(500).json({ error: "Internal server error" });
     }
-}
+};
 
 export const login = async (req, res) => {
     try {
         const { username, password } = req.body;
         var data =  JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf-8'))
-        var data = data.find(({ username }) => username === username)
-        const isPasswordCorrect = await bcrypt.compare(password, data.password)
+        const user = data.find(user => user.username === username);
 
-        if (!data || !isPasswordCorrect) {
-            console.log("Invalid credentials")  
-            return res.status(401).json({
-                error: "Invalid credentials"
-            })
+        if (!user) {
+            return res.status(401).json({ error: "Invalid credentials" });
         }
 
+        const isPasswordCorrect = await bcrypt.compare(password, user.password);
+
+        if (!isPasswordCorrect) {
+            return res.status(401).json({ error: "Invalid credentials" });
+        }
+        
         generateTokenAndSetCookie(data.id, res)
 
         res.status(200).json({
