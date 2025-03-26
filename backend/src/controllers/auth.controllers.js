@@ -2,27 +2,23 @@ import fs from 'fs'
 import path from 'path'
 import bcrypt from 'bcryptjs'
 import generateTokenAndSetCookie from '../utils/generateToken.js'
+import { readUsersFromFile, writeUsersToFile, validateSignupFields } from '../utils/file.js'
+
 
 export const signup = async (req, res) => {
     try {
         const { fullName, username, birth_date, gender, photo, password, confirmPassword } = req.body;
 
         // Validação de campos vazios
-        if (!fullName || !username || !birth_date || !gender || !password || !confirmPassword) {
-            return res.status(400).json({ error: "Todos os campos são obrigatórios" });
+        const validationError = validateSignupFields(fullName, username, birth_date, gender, password, confirmPassword);
+        if (validationError) {
+            return res.status(400).json({ error: validationError });
         }
 
-        if (password !== confirmPassword) {
-            return res.status(400).json({ error: "As senhas não coincidem" });
-        }
+        const data = readUsersFromFile();
 
-        let data = [];
-        try {
-            const fileData = fs.readFileSync(path.resolve('./samples/users.json'), 'utf-8');
-            data = JSON.parse(fileData);
-        } catch (parseError) {
-            console.error("Error parsing users.json:", parseError);
-            return res.status(500).json({ error: "Error reading users.json" });
+        if (!data) {
+            return res.status(500).json({ error: "Erro ao ler os usuários do arquivo" });
         }
 
         const user = data.find(user => user.username === username);
@@ -49,7 +45,7 @@ export const signup = async (req, res) => {
 
         data.push(newUser);
 
-        fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(data, null, 2));
+        writeUsersToFile(data);
 
         res.status(201).json({
             id,
@@ -67,7 +63,11 @@ export const signup = async (req, res) => {
 export const login = async (req, res) => {
     try {
         const { username, password } = req.body;
-        var data =  JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf-8'))
+        const data = readUsersFromFile();
+        if  (!data) {
+            return res.status(500).json({ error: "Erro ao ler os usuários do arquivo" });
+        }
+
         const user = data.find(user => user.username === username);
 
         if (!user) {
