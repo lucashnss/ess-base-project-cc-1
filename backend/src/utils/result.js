@@ -12,20 +12,15 @@ class Result {
 
 class SuccessResult extends Result {
   constructor({ msg, msgCode, code, data }) {
-<<<<<<< HEAD
     super({
       msg,
       msgCode: msgCode || 'success',
       code: code || 200,
     });
-=======
-    super({ msg, msgCode: msgCode || 'success', code: code || 200 });
->>>>>>> main
     this.data = data;
   }
 
   handle(res) {
-<<<<<<< HEAD
     return res.status(this.code).send(this);
   }
 }
@@ -37,21 +32,6 @@ class FailureResult extends Result {
       msgCode: msgCode || 'failure',
       code: code || 500,
     });
-=======
-    return res.status(this.code).json({
-      msg: this.msg,
-      msgCode: this.msgCode,
-      code: this.code,
-      data: this.data,
-    });
-  }  
-}
-
-
-class FailureResult extends Result {
-  constructor({ msg, msgCode, code }) {
-    super({ msg, msgCode: msgCode || 'failure', code: code || 500 });
->>>>>>> main
   }
 
   handle(res) {
@@ -59,7 +39,6 @@ class FailureResult extends Result {
   }
 }
 
-<<<<<<< HEAD
 module.exports = { SuccessResult, FailureResult };
 
 
@@ -130,6 +109,3 @@ module.exports = { SuccessResult, FailureResult };
 //     return res.status(this.code).send(this);
 //   }
 // }
-=======
-module.exports = { Result, SuccessResult, FailureResult };
->>>>>>> main

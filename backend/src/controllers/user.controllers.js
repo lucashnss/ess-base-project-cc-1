@@ -1,11 +1,15 @@
 import fs from 'fs'
 import path from 'path'
 import bcrypt from 'bcryptjs'
+import { readUsersFromFile, writeUsersToFile} from '../utils/authAndUser.js'
 
 export const getAll = (req, res) => {
     try {
 
-        const data = JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf-8'))
+        const data = readUsersFromFile();
+        if (!data) {
+            return res.status(500).json({ error: "Erro ao ler os usuários do arquivo" });
+        }
 
         if (!data || data.length === 0) {
             console.log("Empty users")
@@ -33,7 +37,10 @@ export const getAll = (req, res) => {
 export const getUserById = (req, res) => {
     try {
 
-        const users = JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf-8'))
+        const users = readUsersFromFile();
+        if (!users) {
+            return res.status(500).json({ error: "Erro ao ler os usuários do arquivo" });
+        }
         const user = users.find(element => String(element.id) == String(req.params.userId))
         
         // USER NOT REGISTERED
@@ -63,7 +70,10 @@ export const getUserById = (req, res) => {
 export const updateUser = async (req, res) => {
     try {
 
-        let data = JSON.parse(fs.readFileSync(path.resolve('./samples/users.json'), 'utf-8'))
+        const data = readUsersFromFile();
+        if (!data) {
+            return res.status(500).json({ error: "Erro ao ler os usuários do arquivo" });
+        }
 
         const userIndex = data.findIndex(element => String(element.id) == String(req.params.userId))        
         // USER NOT REGISTERED
@@ -116,7 +126,7 @@ export const updateUser = async (req, res) => {
             password: updatedPassword
         }
 
-        fs.writeFileSync(path.resolve('./samples/users.json'), JSON.stringify(data, null, 2))
+        writeUsersToFile(data)
 
         res.status(200).json(data)
 
